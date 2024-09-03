@@ -78,17 +78,23 @@ public class ItemService {
 
         return getCallObject(query);
     }
+
     /**
      * ✅ 클라이언트가 전달한 인증 토큰과 요청 본문 데이터를 기반으로 아이템 관련 작업을 수행합니다.
      *
-     *    ➡️ 인증 토큰과 요청 본문을 바탕으로 아이템을 처리하고, 결과를 반환합니다.
+     *    ➡️ 인증 토큰과 요청 본문을 이용하여 아이템 관련 작업을 처리하고 결과를 반환합니다. 현재는 인증 정보와 요청 본문 데이터를 콘솔에 출력하고, 모든 아이템 리스트를 반환합니다.
      *
      * @param token 요청 헤더에 포함된 인증 토큰입니다.
      * @param requestDto 요청 본문에 포함된 사용자 데이터를 나타내는 DTO입니다.
      * @return ItemResponseDto 아이템 처리 결과를 포함하는 DTO를 반환합니다.
      */
     public ItemResponseDto exchangeCall(String token, UserRequestDto requestDto) {
-        // 실제 구현에서는 인증 토큰과 요청 데이터를 바탕으로 아이템을 처리하고 결과를 반환하는 로직이 들어갑니다.
-        return null; // 현재는 구현되지 않았습니다.
+        // 인증 토큰과 요청 본문 데이터 출력
+        System.out.println("token = " + token);
+        System.out.println("requestDto.getUsername() = " + requestDto.getUsername());
+        System.out.println("requestDto.getPassword() = " + requestDto.getPassword());
+
+        // 모든 아이템 리스트를 반환
+        return getCallList();
     }
 }
